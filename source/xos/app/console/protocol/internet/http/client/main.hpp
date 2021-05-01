@@ -13,38 +13,34 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: main_opt.hpp
+///   File: main.hpp
 ///
 /// Author: $author$
-///   Date: 3/9/2021
+///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#ifndef XOS_APP_CONSOLE_VERSA_MAIN_OPT_HPP
-#define XOS_APP_CONSOLE_VERSA_MAIN_OPT_HPP
+#ifndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_HPP
+#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_HPP
 
-#include "xos/app/console/version/main.hpp"
-#include "xos/lib/versa/version.hpp"
-
-#define XOS_APP_CONSOLE_VERSA_MAIN_OPTIONS_CHARS \
-   XOS_APP_CONSOLE_VERSION_MAIN_OPTIONS_CHARS \
-
-#define XOS_APP_CONSOLE_VERSA_MAIN_OPTIONS_OPTIONS \
-   XOS_APP_CONSOLE_VERSION_MAIN_OPTIONS_OPTIONS \
-   
-#define XOS_APP_CONSOLE_VERSA_MAIN_ARGS 0
-#define XOS_APP_CONSOLE_VERSA_MAIN_ARGV 0,
+#include "xos/app/console/protocol/internet/http/client/main_opt.hpp"
 
 namespace xos {
 namespace app {
 namespace console {
-namespace versa {
+namespace protocol {
+namespace internet {
+namespace http {
+namespace client {
 
-/// class main_optt
-template <class TExtends = version::maint<lib::versa::version>, class TImplements = typename TExtends::implements>
-class exported main_optt: virtual public TImplements, public TExtends {
+/// class maint
+template 
+<class TExtends = http::client::main_optt<>, 
+ class TImplements = typename TExtends::implements>
+
+class exported maint: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
-    typedef main_optt derives;
+    typedef maint derives;
 
     typedef typename extends::char_t char_t;
     typedef typename extends::end_char_t end_char_t;
@@ -55,22 +51,29 @@ public:
     typedef typename extends::file_t file_t;
 
     /// constructor / destructor
-    main_optt() {
+    maint() {
     }
-    virtual ~main_optt() {
+    virtual ~maint() {
     }
 private:
-    main_optt(const main_optt& copy) {
-        throw xos::exception(exception_unexpected);
+    maint(const maint& copy) {
+        throw exception(exception_unexpected);
     }
 
 protected:
-}; /// class main_optt
-typedef main_optt<> main_opt;
+    typedef typename extends::in_reader_t in_reader_t;
+    typedef typename extends::out_writer_t out_writer_t;
+    typedef typename extends::err_writer_t err_writer_t;
 
-} /// namespace versa
+}; /// class maint
+typedef maint<> main;
+
+} /// namespace client
+} /// namespace http
+} /// namespace internet
+} /// namespace protocol
 } /// namespace console
 } /// namespace app
 } /// namespace xos
 
-#endif /// ndef XOS_APP_CONSOLE_VERSA_MAIN_OPT_HPP 
+#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_HPP

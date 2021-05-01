@@ -16,30 +16,26 @@
 ///   File: main_opt.hpp
 ///
 /// Author: $author$
-///   Date: 3/9/2021
+///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#ifndef XOS_APP_CONSOLE_VERSA_MAIN_OPT_HPP
-#define XOS_APP_CONSOLE_VERSA_MAIN_OPT_HPP
+#ifndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_DAEMON_MAIN_OPT_HPP
+#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_DAEMON_MAIN_OPT_HPP
 
-#include "xos/app/console/version/main.hpp"
-#include "xos/lib/versa/version.hpp"
-
-#define XOS_APP_CONSOLE_VERSA_MAIN_OPTIONS_CHARS \
-   XOS_APP_CONSOLE_VERSION_MAIN_OPTIONS_CHARS \
-
-#define XOS_APP_CONSOLE_VERSA_MAIN_OPTIONS_OPTIONS \
-   XOS_APP_CONSOLE_VERSION_MAIN_OPTIONS_OPTIONS \
-   
-#define XOS_APP_CONSOLE_VERSA_MAIN_ARGS 0
-#define XOS_APP_CONSOLE_VERSA_MAIN_ARGV 0,
+#include "xos/app/console/main.hpp"
 
 namespace xos {
 namespace app {
 namespace console {
-namespace versa {
+namespace protocol {
+namespace internet {
+namespace http {
+namespace daemon {
 
 /// class main_optt
-template <class TExtends = version::maint<lib::versa::version>, class TImplements = typename TExtends::implements>
+template 
+<class TExtends = xos::app::console::main, 
+ class TImplements = typename TExtends::implements>
+
 class exported main_optt: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
@@ -61,16 +57,23 @@ public:
     }
 private:
     main_optt(const main_optt& copy) {
-        throw xos::exception(exception_unexpected);
+        throw exception(exception_unexpected);
     }
 
 protected:
+    typedef typename extends::in_reader_t in_reader_t;
+    typedef typename extends::out_writer_t out_writer_t;
+    typedef typename extends::err_writer_t err_writer_t;
+
 }; /// class main_optt
 typedef main_optt<> main_opt;
 
-} /// namespace versa
+} /// namespace daemon
+} /// namespace http
+} /// namespace internet
+} /// namespace protocol
 } /// namespace console
 } /// namespace app
 } /// namespace xos
 
-#endif /// ndef XOS_APP_CONSOLE_VERSA_MAIN_OPT_HPP 
+#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_DAEMON_MAIN_OPT_HPP
