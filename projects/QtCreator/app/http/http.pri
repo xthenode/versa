@@ -38,7 +38,7 @@ $${versa_INCLUDEPATH} \
 http_DEFINES += \
 $${versa_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE \
+XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_INSTANCE \
 
 ########################################################################
 # http OBJECTIVE_HEADERS
@@ -55,22 +55,22 @@ XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE \
 # http HEADERS
 #
 http_HEADERS += \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/base/main_opt.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/base/main.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/client/main_opt.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/client/main.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/server/main_opt.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/server/main.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/main_opt.hpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/main.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/base/main_opt.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/base/main.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/client/main_opt.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/client/main.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/server/main_opt.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/server/main.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/main_opt.hpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/main.hpp \
 \
 $${NADIR_SRC}/xos/console/main_main.hpp \
 
 # http SOURCES
 #
 http_SOURCES += \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/main_opt.cpp \
-$${VERSA_SRC}/xos/app/console/protocol/internet/http/server/main.cpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/main_opt.cpp \
+$${VERSA_SRC}/xos/app/console/internet/protocol/http/server/main.cpp \
 \
 $${NADIR_SRC}/xos/console/main_main.cpp \
 

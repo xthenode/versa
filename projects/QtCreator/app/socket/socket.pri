@@ -13,68 +13,68 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: versa.pri
+#   File: socket.pri
 #
 # Author: $author$
-#   Date: 3/8/2021
+#   Date: 5/18/2021
 #
-# QtCreator .pri file for versa executable versa
+# QtCreator .pri file for versa executable socket
 ########################################################################
 
 ########################################################################
-# versa
+# socket
 
-# versa_exe TARGET
+# socket TARGET
 #
-versa_exe_TARGET = versa
+socket_TARGET = socket
 
-# versa_exe INCLUDEPATH
+# socket INCLUDEPATH
 #
-versa_exe_INCLUDEPATH += \
+socket_INCLUDEPATH += \
 $${versa_INCLUDEPATH} \
 
-# versa_exe DEFINES
+# socket DEFINES
 #
-versa_exe_DEFINES += \
+socket_DEFINES += \
 $${versa_DEFINES} \
 DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_APP_CONSOLE_VERSA_MAIN_INSTANCE \
+XOS_APP_CONSOLE_NETWORK_SOCKETS_BASE_MAIN_INSTANCE \
 
 ########################################################################
-# versa_exe OBJECTIVE_HEADERS
+# socket OBJECTIVE_HEADERS
 #
-#versa_exe_OBJECTIVE_HEADERS += \
-#$${VERSA_SRC}/versa/base/Base.hh \
+#socket_OBJECTIVE_HEADERS += \
+#$${VERSA_SRC}/xos/app/console/socket/main.hh \
 
-# versa_exe OBJECTIVE_SOURCES
+# socket OBJECTIVE_SOURCES
 #
-#versa_exe_OBJECTIVE_SOURCES += \
-#$${VERSA_SRC}/versa/base/Base.mm \
+#socket_OBJECTIVE_SOURCES += \
+#$${VERSA_SRC}/xos/app/console/socket/main.mm \
 
 ########################################################################
-# versa_exe HEADERS
+# socket HEADERS
 #
-versa_exe_HEADERS += \
-$${VERSA_SRC}/xos/app/console/versa/main_opt.hpp \
-$${VERSA_SRC}/xos/app/console/versa/main.hpp \
+socket_HEADERS += \
+$${VERSA_SRC}/xos/app/console/network/sockets/base/main_opt.hpp \
+$${VERSA_SRC}/xos/app/console/network/sockets/base/main.hpp \
 $${VERSA_SRC}/xos/app/console/main_main.hpp \
 
-# versa_exe SOURCES
+# socket SOURCES
 #
-versa_exe_SOURCES += \
-$${VERSA_SRC}/xos/app/console/versa/main_opt.cpp \
-$${VERSA_SRC}/xos/app/console/versa/main.cpp \
+socket_SOURCES += \
+$${VERSA_SRC}/xos/app/console/network/sockets/base/main_opt.cpp \
+$${VERSA_SRC}/xos/app/console/network/sockets/base/main.cpp \
 $${VERSA_SRC}/xos/app/console/main_main.cpp \
 
 ########################################################################
-# versa_exe FRAMEWORKS
+# socket FRAMEWORKS
 #
-versa_exe_FRAMEWORKS += \
+socket_FRAMEWORKS += \
 $${versa_FRAMEWORKS} \
 
-# versa_exe LIBS
+# socket LIBS
 #
-versa_exe_LIBS += \
+socket_LIBS += \
 $${versa_LIBS} \
 
 

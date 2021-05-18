@@ -16,7 +16,7 @@
 #   File: versa.pri
 #
 # Author: $author$
-#   Date: 3/8/2021, 3/9/2021
+#   Date: 3/8/2021, 5/18/2021
 #
 # Os specific QtCreator .pri file for versa
 ########################################################################
