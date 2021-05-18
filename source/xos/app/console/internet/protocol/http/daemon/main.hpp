@@ -18,15 +18,15 @@
 /// Author: $author$
 ///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#ifndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_DAEMON_MAIN_HPP
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_DAEMON_MAIN_HPP
+#ifndef XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_DAEMON_MAIN_HPP
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_DAEMON_MAIN_HPP
 
-#include "xos/app/console/protocol/internet/http/daemon/main_opt.hpp"
+#include "xos/app/console/internet/protocol/http/daemon/main_opt.hpp"
 
 namespace xos {
 namespace app {
 namespace console {
-namespace protocol {
+namespace xos { namespace internet { namespace protocol {
 namespace internet {
 namespace http {
 namespace daemon {
@@ -71,9 +71,9 @@ typedef maint<> main;
 } /// namespace daemon
 } /// namespace http
 } /// namespace internet
-} /// namespace protocol
+} /// namespace protocol } /// namespace internet } /// namespace xos
 } /// namespace console
 } /// namespace app
 } /// namespace xos
 
-#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_DAEMON_MAIN_HPP
+#endif /// ndef XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_DAEMON_MAIN_HPP

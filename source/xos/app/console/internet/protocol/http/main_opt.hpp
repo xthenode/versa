@@ -18,35 +18,35 @@
 /// Author: $author$
 ///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#ifndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_HPP
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_HPP
+#ifndef XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_HPP
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_HPP
 
-#include "xos/app/console/protocol/internet/http/client/main.hpp"
-#include "xos/app/console/protocol/internet/http/server/main.hpp"
+#include "xos/app/console/internet/protocol/http/client/main.hpp"
+#include "xos/app/console/internet/protocol/http/server/main.hpp"
 #include "xos/app/console/network/sockets/client/main.hpp"
 #include "xos/app/console/network/sockets/server/main.hpp"
 
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPTIONS_CHARS_EXTEND \
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPTIONS_CHARS_EXTEND \
 
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPTIONS_OPTIONS_EXTEND \
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPTIONS_OPTIONS_EXTEND \
 
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPTIONS_CHARS \
-   XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPTIONS_CHARS \
+   XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
    XOS_APP_CONSOLE_NETWORK_SOCKETS_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
-   XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_SERVER_MAIN_OPTIONS_CHARS \
+   XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_SERVER_MAIN_OPTIONS_CHARS \
 
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPTIONS_OPTIONS \
-   XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPTIONS_OPTIONS \
+   XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
    XOS_APP_CONSOLE_NETWORK_SOCKETS_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
-   XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_SERVER_MAIN_OPTIONS_OPTIONS \
+   XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_SERVER_MAIN_OPTIONS_OPTIONS \
    
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_ARGS 0
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_ARGV 0,
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_ARGS 0
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_ARGV 0,
 
 namespace xos {
 namespace app {
 namespace console {
-namespace protocol {
+namespace xos { namespace internet { namespace protocol {
 namespace internet {
 namespace http {
 
@@ -113,9 +113,9 @@ protected:
         return chars;
     }
     virtual const char_t* options(const struct option*& longopts) {
-        static const char_t* chars = XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPTIONS_CHARS;
+        static const char_t* chars = XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPTIONS_CHARS;
         static struct option optstruct[]= {
-            XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPTIONS_OPTIONS
+            XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPTIONS_OPTIONS
             {0, 0, 0, 0}};
         longopts = optstruct;
         return chars;
@@ -123,9 +123,9 @@ protected:
 
     /// ...argument...
     virtual const char_t* arguments(const char_t**& argv) {
-        static const char_t* _args = XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_ARGS;
+        static const char_t* _args = XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_ARGS;
         static const char_t* _argv[] = {
-            XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_ARGV
+            XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_ARGV
             0};
         argv = _argv;
         return _args;
@@ -136,9 +136,9 @@ typedef main_optt<> main_opt;
 
 } /// namespace http
 } /// namespace internet
-} /// namespace protocol
+} /// namespace protocol } /// namespace internet } /// namespace xos
 } /// namespace console
 } /// namespace app
 } /// namespace xos
 
-#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_HPP
+#endif /// ndef XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_HPP

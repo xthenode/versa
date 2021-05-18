@@ -18,26 +18,26 @@
 /// Author: $author$
 ///   Date: 3/13/2021
 ///////////////////////////////////////////////////////////////////////
-#include "xos/protocol/internet/http/message/part.hpp"
+#include "xos/internet/protocol/http/message/part.hpp"
 
-#if !defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_PART_INSTANCE)
-//#define XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_PART_INSTANCE
-#endif /// !defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_PART_INSTANCE)
+#if !defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_PART_INSTANCE)
+//#define XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_PART_INSTANCE
+#endif /// !defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_PART_INSTANCE)
 
 namespace xos {
+namespace internet { 
 namespace protocol {
-namespace internet {
 namespace http {
 namespace message {
 
 ///  Class: partt
-#if defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_PART_INSTANCE)
+#if defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_PART_INSTANCE)
 //static part the_part;
-#endif /// defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_PART_INSTANCE)
+#endif /// defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_PART_INSTANCE)
 
 
 } /// namespace message
 } /// namespace http
+} /// namespace protocol 
 } /// namespace internet
-} /// namespace protocol
 } /// namespace xos

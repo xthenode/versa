@@ -16,45 +16,45 @@
 ///   File: part.hpp
 ///
 /// Author: $author$
-///   Date: 3/7/2021
+///   Date: 5/11/2021
 ///////////////////////////////////////////////////////////////////////
-#ifndef XOS_PROTOCOL_XTTP_MESSAGE_PART_HPP
-#define XOS_PROTOCOL_XTTP_MESSAGE_PART_HPP
+#ifndef XOS_INTERNET_PROTOCOL_XTTP_MESSAGE_PART_HPP
+#define XOS_INTERNET_PROTOCOL_XTTP_MESSAGE_PART_HPP
 
-#include "xos/protocol/xttp/message/string.hpp"
+#include "xos/internet/protocol/xttp/message/string.hpp"
 
+namespace xos {
+namespace internet {
 namespace protocol {
 namespace xttp {
 namespace message {
 
 /// class partt
-template <class TExtends = protocol::xttp::message::string, class TImplements = typename TExtends::implements>
+template <class TExtends = xttp::message::string, class TImplements = typename TExtends::implements>
 class exported partt: virtual public TImplements, public TExtends {
 public:
     typedef TImplements implements;
     typedef TExtends extends;
-    typedef partt derives;
+    typedef partt derives; 
     
-    typedef typename string_t::char_t char_t;
     typedef typename extends::string_t string_t;
-    typedef typename extends::reader_t reader_t;
-    typedef typename extends::writer_t writer_t;
-    typedef extends part_t;
+    typedef typename string_t::sstream_t sstream_t;
+    typedef typename string_t::char_t char_t;
+    typedef io::sequencet<char_t> sequence_t;
+    typedef io::seekert<sequence_t> seeker_t;
+    typedef io::readert<seeker_t> reader_t;
+    typedef io::writert<sequence_t> writer_t;
 
-    /// constructor / destructor
-    partt(const string_t& chars): extends(chars) {
-        this->separate();
+    /// constructors / destructor
+    partt(const char_t* copy, size_t length): extends(copy, length), is_combined_(true), is_logged_(true) {
     }
-    partt(const char_t* chars, size_t length): extends(chars, length) {
-        this->separate();
+    partt(const char_t* copy): extends(copy), is_combined_(true), is_logged_(true) {
     }
-    partt(const char_t* chars): extends(chars) {
-        this->separate();
+    partt(const string_t& copy): extends(copy), is_combined_(true), is_logged_(true) {
     }
-    partt(const partt& copy): extends(copy) {
+    partt(const derives& copy): extends(copy), is_combined_(copy.is_combined()), is_logged_(copy.is_logged()) {
     }
-    partt() {
-        this->set_default();
+    partt(): is_combined_(true), is_logged_(true) {
     }
     virtual ~partt() {
     }
@@ -62,12 +62,126 @@ public:
     /// read / write
     virtual bool read(ssize_t& count, char_t& c, reader_t& reader) {
         bool success = false;
-        // success = this->read_this(count, c, reader);
         return success;
     }
     virtual bool write(ssize_t& count, writer_t& writer) {
         bool success = false;
-        // success = this->write_this(count, writer);
+        return success;
+    }
+
+    /// read_line / read_this / write_this
+    virtual bool read_line(ssize_t& count, char_t& c, reader_t& reader) {
+        bool success = false;
+        char_t cr = 0;
+        ssize_t amount = 0;
+        string_t chars;
+
+        this->set_default();
+        do {
+            if (0 < (amount = reader.read(&c, 1))) {
+                count += amount;
+                if (('\r' != c)) {
+                    if (('\n' != c)) {
+                        chars.append(&c, 1);
+                    } else {
+                        success = this->is_set(chars);
+                        break;
+                    }
+                } else {
+                    if (cr != c) {
+                        cr = c;
+                    } else {
+                        chars.append(&cr, 1);
+                    }
+                }
+            } else {
+                count = amount;
+                break;
+            }
+        } while (0 < amount);
+        return success;
+    }
+    virtual bool read_this(ssize_t& count, char_t& c, reader_t& reader) {
+        bool success = false;
+        ssize_t amount = 0;
+        string_t chars;
+        
+        set_default();
+        do {
+            if (0 < (amount = reader.read(&c, 1))) {
+                count += amount;
+                if (('\r' != c) && ('\n' != c)) {
+                    chars.append(&c, 1);
+                } else {
+                    break;
+                }
+            } else {
+                count = amount;
+                return false;
+            }
+        } while (0 < amount);
+        if ((chars.has_chars())) {
+            this->assign(chars);
+            success = separate();
+        }
+        return success;
+    }
+    virtual bool write_this(ssize_t& count, writer_t& writer) {
+        bool success = false;
+        const char_t* chars = 0;
+        size_t length = 0;
+        
+        if ((chars = this->has_chars(length))) {
+            ssize_t amount = 0;
+
+            if (length <= (amount = writer.write(chars, length))) {
+                count = amount;
+                success = true;
+            }
+        }
+        return success;
+    }
+
+    /// clear / ...set
+    virtual derives& clear() {
+        extends::clear();
+        return *this;
+    }
+    virtual derives& set(const partt& to) {
+        this->assign(to);
+        return *this;
+    }
+    virtual derives& set(const string_t& to) {
+        this->assign(to);
+        separate();
+        return *this;
+    }
+    virtual derives& set(const char_t* to, size_t length) {
+        this->assign(to, length);
+        separate();
+        return *this;
+    }
+    virtual derives& set(const char_t* to) {
+        this->assign(to);
+        separate();
+        return *this;
+    }
+    virtual bool is_set(const string_t& to) {
+        bool success = false;
+        this->assign(to);
+        success = separate();
+        return success;
+    }
+    virtual bool is_set(const char_t* to, size_t length) {
+        bool success = false;
+        this->assign(to, length);
+        success = separate();
+        return success;
+    }
+    virtual bool is_set(const char_t* to) {
+        bool success = false;
+        this->assign(to);
+        success = separate();
         return success;
     }
 
@@ -91,12 +205,35 @@ public:
         return *this;
     }
 
+    /// ...is_combined
+    virtual bool& set_is_combined(bool to = true) {
+        bool& is_combined = this->is_combined();
+        is_combined = to;
+        return is_combined;
+    }
+    virtual bool& is_combined() const {
+        return (bool&)is_combined_;
+    }
+
+    /// ...is_logged
+    virtual bool& set_is_logged(bool to = true) {
+        bool& is_logged = this->is_logged();
+        is_logged = to;
+        return is_logged;
+    }
+    virtual bool& is_logged() const {
+        return (bool&)is_logged_;
+    }
+
 protected:
+    bool is_combined_, is_logged_;
 }; /// class partt
 typedef partt<> part;
 
 } /// namespace message
 } /// namespace xttp
 } /// namespace protocol
+} /// namespace internet
+} /// namespace xos
 
-#endif ///ndef XOS_PROTOCOL_XTTP_MESSAGE_PART_HPP
+#endif /// XOS_INTERNET_PROTOCOL_XTTP_MESSAGE_PART_HPP

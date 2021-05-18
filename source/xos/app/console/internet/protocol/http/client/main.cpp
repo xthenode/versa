@@ -18,29 +18,29 @@
 /// Author: $author$
 ///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#include "xos/app/console/protocol/internet/http/client/main.hpp"
+#include "xos/app/console/internet/protocol/http/client/main.hpp"
 
-#if !defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_INSTANCE)
-///#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_NSTANCE)
+#if !defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_INSTANCE)
+///#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_INSTANCE
+#endif /// !defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_NSTANCE)
 
 namespace xos {
 namespace app {
 namespace console {
-namespace protocol {
+namespace xos { namespace internet { namespace protocol {
 namespace internet {
 namespace http {
 namespace client {
 
 /// class main
-#if defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_INSTANCE)
+#if defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_INSTANCE)
 static main the_main;
-#endif /// defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_CLIENT_MAIN_INSTANCE)
+#endif /// defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_CLIENT_MAIN_INSTANCE)
 
 } /// namespace client
 } /// namespace http
 } /// namespace internet
-} /// namespace protocol
+} /// namespace protocol } /// namespace internet } /// namespace xos
 } /// namespace console
 } /// namespace app
 } /// namespace xos

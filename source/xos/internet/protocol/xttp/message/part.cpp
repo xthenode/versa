@@ -16,17 +16,22 @@
 ///   File: part.cpp
 ///
 /// Author: $author$
-///   Date: 3/7/2021
+///   Date: 5/11/2021
 ///////////////////////////////////////////////////////////////////////
-#include "xos/protocol/xttp/message/part.hpp"
+#include "xos/internet/protocol/xttp/message/part.hpp"
 
+#if !defined(XOS_INTERNET_PROTOCOL_XTTP_MESSAGE_PART_INSTANCE)
+//#define XOS_INTERNET_PROTOCOL_XTTP_MESSAGE_PART_INSTANCE
+#endif /// !defined(XOS_INTERNET_PROTOCOL_XTTP_MESSAGE_PART_INSTANCE)
+
+namespace xos {
+namespace internet {
 namespace protocol {
 namespace xttp {
 namespace message {
 
-/// class partt
-
-
 } /// namespace message
 } /// namespace xttp
 } /// namespace protocol
+} /// namespace internet
+} /// namespace xos

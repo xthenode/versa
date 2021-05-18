@@ -18,22 +18,22 @@
 /// Author: $author$
 ///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#ifndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_BASE_MAIN_HPP
-#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_BASE_MAIN_HPP
+#ifndef XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_BASE_MAIN_HPP
+#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_BASE_MAIN_HPP
 
-#include "xos/app/console/protocol/internet/http/base/main_opt.hpp"
+#include "xos/app/console/internet/protocol/http/base/main_opt.hpp"
 
 namespace xos {
 namespace app {
 namespace console {
+namespace internet { 
 namespace protocol {
-namespace internet {
 namespace http {
 namespace base {
 
 /// class maint
 template 
-<class TExtends = protocol::internet::http::base::main_optt<>, 
+<class TExtends = internet::protocol::http::base::main_optt<>, 
  class TImplements = typename TExtends::implements>
 
 class exported maint: virtual public TImplements, public TExtends {
@@ -70,10 +70,10 @@ typedef maint<> main;
 
 } /// namespace base
 } /// namespace http
-} /// namespace internet
 } /// namespace protocol
+} /// namespace internet 
 } /// namespace console
 } /// namespace app
 } /// namespace xos
 
-#endif /// ndef XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_BASE_MAIN_HPP
+#endif /// ndef XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_BASE_MAIN_HPP

@@ -18,26 +18,26 @@
 /// Author: $author$
 ///   Date: 3/13/2021
 ///////////////////////////////////////////////////////////////////////
-#include "xos/protocol/internet/http/message/string.hpp"
+#include "xos/internet/protocol/http/message/string.hpp"
 
-#if !defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_STRING_INSTANCE)
-//#define XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_STRING_INSTANCE
-#endif /// !defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_STRING_INSTANCE)
+#if !defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_STRING_INSTANCE)
+//#define XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_STRING_INSTANCE
+#endif /// !defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_STRING_INSTANCE)
 
 namespace xos {
+namespace internet { 
 namespace protocol {
-namespace internet {
 namespace http {
 namespace message {
 
 ///  Class: stringt
-#if defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_STRING_INSTANCE)
+#if defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_STRING_INSTANCE)
 //static string the_string;
-#endif /// defined(XOS_PROTOCOL_INTERNET_HTTP_MESSAGE_STRING_INSTANCE)
+#endif /// defined(XOS_INTERNET_PROTOCOL_HTTP_MESSAGE_STRING_INSTANCE)
 
 
 } /// namespace message
 } /// namespace http
-} /// namespace internet
 } /// namespace protocol
+} /// namespace internet 
 } /// namespace xos

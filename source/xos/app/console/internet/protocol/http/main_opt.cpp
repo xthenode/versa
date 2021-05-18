@@ -18,27 +18,27 @@
 /// Author: $author$
 ///   Date: 3/12/2021
 ///////////////////////////////////////////////////////////////////////
-#include "xos/app/console/protocol/internet/http/main_opt.hpp"
+#include "xos/app/console/internet/protocol/http/main_opt.hpp"
 
-#if !defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE)
-///#define XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE)
+#if !defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_INSTANCE)
+///#define XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_INSTANCE
+#endif /// !defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_INSTANCE)
 
 namespace xos {
 namespace app {
 namespace console {
-namespace protocol {
+namespace xos { namespace internet { namespace protocol {
 namespace internet {
 namespace http {
 
 /// class main_optt
-#if defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE)
+#if defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_INSTANCE)
 static main_opt the_main_opt;
-#endif /// defined(XOS_APP_CONSOLE_PROTOCOL_INTERNET_HTTP_MAIN_OPT_INSTANCE)
+#endif /// defined(XOS_APP_CONSOLE_INTERNET_PROTOCOL_HTTP_MAIN_OPT_INSTANCE)
 
 } /// namespace http
 } /// namespace internet
-} /// namespace protocol
+} /// namespace protocol } /// namespace internet } /// namespace xos
 } /// namespace console
 } /// namespace app
 } /// namespace xos
